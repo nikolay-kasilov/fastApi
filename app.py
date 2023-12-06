@@ -22,7 +22,7 @@ def read_root():
 
 
 @app.post('/')
-def post_root(r: Request):
+async def post_root(r: Request):
     notes = read_notes()
     new_note = await r.json()
     if 'title' not in new_note \
@@ -34,4 +34,4 @@ def post_root(r: Request):
             "text": new_note['text']
         }
     )
-    return {'сообщение': 'ок'}
+    return {'сообщение': 'ок!'}
